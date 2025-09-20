@@ -1,7 +1,14 @@
 import './App.css';
+import { SimpleForm } from './forms/demo1/SimpleForm';
+import { SimpleFormWithRHF } from './forms/demo1/SimpleFormWithRHF';
 
-function App() {
-  return <></>;
+export default function App() {
+  return (
+    <div>
+      {/* DEMO 1 */}
+      {/* <SimpleForm /> */}
+      <SimpleFormWithRHF />
+      {/* DEMO 2 */}
+    </div>
+  );
 }
-
-export default App;
