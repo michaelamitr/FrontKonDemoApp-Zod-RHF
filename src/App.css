@@ -110,8 +110,8 @@ textarea {
 
 .submit-btn {
   padding: 0.7rem 1.4rem;
-  background: #2563eb;
-  color: white;
+  background: #516eac;
+  color: #fff1e0;
   border: none;
   border-radius: 0.6rem;
   font-weight: 500;
@@ -119,12 +119,12 @@ textarea {
 }
 
 .submit-btn:hover:not(.btn-disabled) {
-  background: #1e4ed8;
+  background: #3157a9;
 }
 
 .btn-disabled {
-  background: #e5e7eb !important;
-  color: #6b7280 !important;
+  background: #516eac75 !important;
+  color: #95baffc9 !important;
   cursor: not-allowed;
 }
 
