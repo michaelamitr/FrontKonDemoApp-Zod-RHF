@@ -8,12 +8,12 @@ export default function App() {
   return (
     <div>
       {/* DEMO 1 */}
-      {/* <SimpleForm /> */}
+      <SimpleForm />
       {/* <SimpleFormWithRHF /> */}
       {/* DEMO 2 */}
       {/* <SimpleFormWithRHFAndZOD /> */}
       {/* DEMO 3 */}
-      <FancyForm />
+      {/* <FancyForm /> */}
     </div>
   );
 }

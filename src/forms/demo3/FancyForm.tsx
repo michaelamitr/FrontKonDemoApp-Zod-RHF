@@ -18,6 +18,7 @@ export const FancyForm = () => {
     defaultValues: defaultValues,
     resolver: zodResolver(bookingFormSchema),
     mode: 'onSubmit',
+    reValidateMode: 'onChange',
   });
 
   const { handleSubmit } = methods;

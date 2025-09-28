@@ -1,9 +1,7 @@
 import '../../App.css';
 import { useForm, type SubmitHandler } from 'react-hook-form';
-import { DevTool } from '@hookform/devtools';
 
 type RoomType = 'single' | 'double' | 'suite';
-
 interface FormValues {
   fullName: string;
   email: string;
@@ -11,12 +9,8 @@ interface FormValues {
   roomType: RoomType;
 }
 
-let renderCount = 0;
-
 export const SimpleFormWithRHF = () => {
-  renderCount++;
-
-  const { register, handleSubmit, reset, control } = useForm<FormValues>({
+  const { register, handleSubmit, reset } = useForm<FormValues>({
     defaultValues: {
       fullName: '',
       email: '',
@@ -34,7 +28,6 @@ export const SimpleFormWithRHF = () => {
     <>
       <div className="form-container">
         <h2 className="form-title">Rezervace hotelového pokoje</h2>
-        <h3>Render count: {renderCount}</h3>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="form-grid">
             {/* CELÉ JMÉNO */}
@@ -85,7 +78,6 @@ export const SimpleFormWithRHF = () => {
           </div>
         </form>
       </div>
-      <DevTool control={control} />
     </>
   );
 };

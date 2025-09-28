@@ -3,17 +3,13 @@ import React, { useState } from 'react';
 
 type RoomType = 'single' | 'double' | 'suite';
 
-let renderCount = 0;
-
 export const SimpleForm = () => {
-  renderCount++;
-
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [roomType, setRoomType] = useState<RoomType>('single');
 
-  function handleSubmit(e: React.FormEvent) {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     const payload = {
@@ -30,12 +26,11 @@ export const SimpleForm = () => {
     setEmail('');
     setPhone('');
     setRoomType('single');
-  }
+  };
 
   return (
     <div className="form-container">
       <h2 className="form-title">Rezervace hotelového pokoje</h2>
-      <h3>Render count: {renderCount}</h3>
       <form onSubmit={handleSubmit}>
         <div className="form-grid">
           {/* CELÉ JMÉNO */}
