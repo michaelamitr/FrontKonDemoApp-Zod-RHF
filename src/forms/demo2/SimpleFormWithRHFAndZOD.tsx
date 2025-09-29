@@ -23,6 +23,8 @@ export const SimpleFormWithRHFAndZOD = () => {
   } = useForm<bookingFormValues>({
     defaultValues: defaultValues,
     resolver: zodResolver(bookingFormSchema),
+    mode: 'onSubmit',
+    reValidateMode: 'onChange',
   });
 
   const onSubmit: SubmitHandler<bookingFormValues> = (data) => {
