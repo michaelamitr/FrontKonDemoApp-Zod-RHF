@@ -3,33 +3,33 @@ import '../../App.css';
 
 type RoomType = 'single' | 'double' | 'suite';
 
-export const SimpleForm = () => {
+export const SimpleFormWithValidation = () => {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [roomType, setRoomType] = useState<RoomType>('single');
 
-  // const [errors, setErrors] = useState<Record<string, string>>({});
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
-  // const validate = () => {
-  //   const errorsObject: Record<string, string> = {};
-  //   if (!fullName.trim()) errorsObject.fullName = 'Zadejte celé jméno.';
-  //   if (!email.trim()) errorsObject.email = 'Zadejte e-mail.';
-  //   else if (!/^\S+@\S+\.\S+$/.test(email))
-  //     errorsObject.email = 'Neplatný formát e-mailu.';
-  //   if (!phone.trim()) errorsObject.phone = 'Zadejte telefon.';
-  //   else if (!/^\+?[0-9 \-()]{7,}$/.test(phone))
-  //     errorsObject.phone = 'Neplatné telefonní číslo.';
+  const validate = () => {
+    const errorsObject: Record<string, string> = {};
+    if (!fullName.trim()) errorsObject.fullName = 'Zadejte celé jméno.';
+    if (!email.trim()) errorsObject.email = 'Zadejte e-mail.';
+    else if (!/^\S+@\S+\.\S+$/.test(email))
+      errorsObject.email = 'Neplatný formát e-mailu.';
+    if (!phone.trim()) errorsObject.phone = 'Zadejte telefon.';
+    else if (!/^\+?[0-9 \-()]{7,}$/.test(phone))
+      errorsObject.phone = 'Neplatné telefonní číslo.';
 
-  //   console.log({ errorsObject });
+    console.log({ errorsObject });
 
-  //   setErrors(errorsObject);
-  //   return Object.keys(errorsObject).length === 0;
-  // };
+    setErrors(errorsObject);
+    return Object.keys(errorsObject).length === 0;
+  };
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // if (!validate()) return;
+    if (!validate()) return;
 
     const payload = {
       fullName,
@@ -41,23 +41,23 @@ export const SimpleForm = () => {
     console.log('Submitting reservation:', payload);
     alert('Rezervace odeslána! ');
 
-    // setFullName('');
-    // setEmail('');
-    // setPhone('');
+    setFullName('');
+    setEmail('');
+    setPhone('');
 
-    // setRoomType('double');
+    setRoomType('double');
 
-    // setErrors({});
+    setErrors({});
   }
 
-  // const isValid = () => {
-  //   return (
-  //     fullName.trim() &&
-  //     email.trim() &&
-  //     /^\S+@\S+\.\S+$/.test(email) &&
-  //     phone.trim()
-  //   );
-  // };
+  const isValid = () => {
+    return (
+      fullName.trim() &&
+      email.trim() &&
+      /^\S+@\S+\.\S+$/.test(email) &&
+      phone.trim()
+    );
+  };
 
   return (
     <div className="form-container">
@@ -69,14 +69,13 @@ export const SimpleForm = () => {
             <input
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
-              // className={`form-input
-              //   ${errors.fullName ? 'input-error' : ''}`}
-              className="form-input"
+              className={`form-input
+                ${errors.fullName ? 'input-error' : ''}`}
               placeholder="Jan Novák"
             />
-            {/* {errors.fullName && (
+            {errors.fullName && (
               <small className="error-text">{errors.fullName}</small>
-            )} */}
+            )}
           </label>
 
           <label className="form-label">
@@ -85,13 +84,12 @@ export const SimpleForm = () => {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="form-input"
-              //  className={`form-input ${errors.email ? 'input-error' : ''}`}
+              className={`form-input ${errors.email ? 'input-error' : ''}`}
               placeholder="email@example.com"
             />
-            {/* {errors.email && (
+            {errors.email && (
               <small className="error-text">{errors.email}</small>
-            )} */}
+            )}
           </label>
 
           <label className="form-label">
@@ -99,13 +97,12 @@ export const SimpleForm = () => {
             <input
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              className="form-input"
-              // className={`form-input ${errors.phone ? 'input-error' : ''}`}
+              className={`form-input ${errors.phone ? 'input-error' : ''}`}
               placeholder="+420 123 456 789"
             />
-            {/* {errors.phone && (
+            {errors.phone && (
               <small className="error-text">{errors.phone}</small>
-            )} */}
+            )}
           </label>
 
           <div className="form-row">
@@ -127,8 +124,8 @@ export const SimpleForm = () => {
             <button
               type="submit"
               // disabled={!isValid()}
+              // className={`submit-btn ${!isValid() ? 'btn-disabled' : ''}`}
               className="submit-btn"
-              //  className={`submit-btn ${!isValid() ? 'btn-disabled' : ''}`}
             >
               Rezervovat
             </button>
