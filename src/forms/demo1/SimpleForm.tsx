@@ -37,6 +37,7 @@ export const SimpleForm = () => {
           <label className="form-label">
             <span>Celé jméno</span>
             <input
+              id="fullName"
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
               className="form-input"
@@ -47,6 +48,7 @@ export const SimpleForm = () => {
           <label className="form-label">
             <span>E-mail</span>
             <input
+              id="email"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -58,6 +60,7 @@ export const SimpleForm = () => {
           <label className="form-label">
             <span>Telefon</span>
             <input
+              id="phone"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               className="form-input"
@@ -69,6 +72,7 @@ export const SimpleForm = () => {
             <label className="form-label">
               <span>Typ pokoje</span>
               <select
+                id="roomType"
                 value={roomType}
                 onChange={(e) => setRoomType(e.target.value as RoomType)}
                 className="form-input"

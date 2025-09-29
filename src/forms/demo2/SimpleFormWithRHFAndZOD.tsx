@@ -2,7 +2,6 @@ import '../../App.css';
 import { useForm, type SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { bookingFormSchema, type bookingFormValues } from './schema';
-import { useEffect } from 'react';
 
 export const SimpleFormWithRHFAndZOD = () => {
   const defaultValues: bookingFormValues = {
@@ -18,7 +17,6 @@ export const SimpleFormWithRHFAndZOD = () => {
     reset,
     formState: {
       errors: { fullName, email, phone, roomType },
-      isSubmitSuccessful,
     },
   } = useForm<bookingFormValues>({
     defaultValues: defaultValues,
@@ -29,11 +27,8 @@ export const SimpleFormWithRHFAndZOD = () => {
 
   const onSubmit: SubmitHandler<bookingFormValues> = (data) => {
     console.log('Submitting reservation:', data);
+    reset();
   };
-
-  useEffect(() => {
-    reset(defaultValues);
-  }, [isSubmitSuccessful]); // vymaže formulář po odeslání
 
   return (
     <>
