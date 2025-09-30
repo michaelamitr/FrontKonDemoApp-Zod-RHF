@@ -21,11 +21,11 @@ export const FancyForm = () => {
     reValidateMode: 'onChange',
   });
 
-  const { handleSubmit } = methods;
+  const { handleSubmit, reset } = methods;
 
   const onSubmit: SubmitHandler<bookingFormValues> = (data) => {
     console.log('Submitting reservation:', data);
-    methods.reset();
+    reset();
   };
 
   return (
