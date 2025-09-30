@@ -31,7 +31,7 @@ export const SimpleForm = () => {
   return (
     <div className="form-container">
       <h2 className="form-title">Rezervace hotelového pokoje</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} noValidate>
         <div className="form-grid">
           {/* CELÉ JMÉNO */}
           <label className="form-label">
